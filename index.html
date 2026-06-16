@@ -35,11 +35,16 @@ body{font-family:Outfit,sans-serif;background:#f0f4f8;color:#1a202c}
       </svg>
     </div>
     <h1>Boxer Representantes</h1>
-    <p>Painel de Disponibilidade e Sales 2.0</p>
+    <p id="formDesc">Painel de Disponibilidade e Sales 2.0</p>
     <div id="loginErr" class="err-msg hidden"></div>
     <div class="field"><label>E-mail</label><input id="loginEmail" type="email" placeholder="seu@email.com" autocomplete="email"></div>
     <div class="field"><label>Senha</label><input id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password"></div>
-    <button class="btn-login" id="btnLogin" onclick="doLogin()">Entrar</button>
+    <div class="field" id="fieldConfirm" style="display:none"><label>Confirmar Senha</label><input id="loginConfirm" type="password" placeholder="••••••••"></div>
+    <button class="btn-login" id="btnLogin" onclick="doAction()">Entrar</button>
+    <div style="text-align:center;margin-top:14px;font-size:13px;color:#718096">
+      <span id="toggleText">Não tem conta?</span>
+      <span id="toggleLink" onclick="toggleMode()" style="color:#1d327b;font-weight:600;cursor:pointer;margin-left:4px">Criar conta</span>
+    </div>
   </div>
 </div>
 
@@ -47,11 +52,27 @@ body{font-family:Outfit,sans-serif;background:#f0f4f8;color:#1a202c}
 const SB_URL = 'https://agtzfllruggjbscuwdyi.supabase.co';
 const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFndHpmbGxydWdnamJzY3V3ZHlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1NDQyMTcsImV4cCI6MjA5NzEyMDIxN30.A-u9ezGh7c921sf-L8Q6XVgUjU412mAAdkcID1Ajk8g';
 
-// Se já tem sessão, redirecionar
 if (sessionStorage.getItem('boxer_session')) location.href = 'disponibilidade.html';
 
-document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-document.getElementById('loginEmail').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('loginPass').focus(); });
+let mode = 'login';
+
+function toggleMode() {
+  mode = mode === 'login' ? 'register' : 'login';
+  const isReg = mode === 'register';
+  document.getElementById('fieldConfirm').style.display = isReg ? 'block' : 'none';
+  document.getElementById('btnLogin').textContent = isReg ? 'Criar conta' : 'Entrar';
+  document.getElementById('formDesc').textContent = isReg ? 'Crie sua conta de acesso' : 'Painel de Disponibilidade e Sales 2.0';
+  document.getElementById('toggleText').textContent = isReg ? 'Já tem conta?' : 'Não tem conta?';
+  document.getElementById('toggleLink').textContent = isReg ? 'Entrar' : 'Criar conta';
+  document.getElementById('loginErr').classList.add('hidden');
+}
+
+function doAction() {
+  if (mode === 'login') doLogin();
+  else doRegister();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Enter') doAction(); });
 
 async function doLogin() {
   const email = document.getElementById('loginEmail').value.trim();
@@ -87,6 +108,76 @@ async function doLogin() {
     errEl.textContent = 'Erro de conexão. Tente novamente.';
     errEl.classList.remove('hidden');
     btn.disabled = false; btn.textContent = 'Entrar';
+  }
+}
+
+async function doRegister() {
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  const confirm = document.getElementById('loginConfirm').value;
+  const errEl = document.getElementById('loginErr');
+  const btn = document.getElementById('btnLogin');
+
+  if (!email || !pass || !confirm) {
+    errEl.textContent = 'Preencha todos os campos.';
+    errEl.classList.remove('hidden');
+    return;
+  }
+  if (pass !== confirm) {
+    errEl.textContent = 'As senhas não coincidem.';
+    errEl.classList.remove('hidden');
+    return;
+  }
+  if (pass.length < 6) {
+    errEl.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+    errEl.classList.remove('hidden');
+    return;
+  }
+  errEl.classList.add('hidden');
+  btn.disabled = true; btn.textContent = 'Verificando...';
+
+  try {
+    const checkRes = await fetch(`${SB_URL}/rest/v1/usuarios_permitidos?email=eq.${encodeURIComponent(email)}&select=email`, {
+      headers: { 'apikey': SB_ANON, 'Authorization': 'Bearer ' + SB_ANON }
+    });
+    const checkData = await checkRes.json();
+    if (!checkData || checkData.length === 0) {
+      errEl.textContent = 'Este e-mail não está autorizado a criar uma conta.';
+      errEl.classList.remove('hidden');
+      btn.disabled = false; btn.textContent = 'Criar conta';
+      return;
+    }
+
+    btn.textContent = 'Criando conta...';
+    const res = await fetch(`${SB_URL}/auth/v1/signup`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SB_ANON },
+      body: JSON.stringify({ email, password: pass }),
+    });
+    const data = await res.json();
+    if (data.error) {
+      errEl.textContent = data.error_description || 'Erro ao criar conta.';
+      errEl.classList.remove('hidden');
+      btn.disabled = false; btn.textContent = 'Criar conta';
+      return;
+    }
+    if (data.access_token) {
+      sessionStorage.setItem('boxer_session', JSON.stringify(data));
+      sessionStorage.setItem('boxer_email', email);
+      location.href = 'disponibilidade.html';
+    } else {
+      errEl.style.background = '#dcfce7';
+      errEl.style.color = '#15803d';
+      errEl.style.borderColor = '#86efac';
+      errEl.textContent = 'Conta criada com sucesso! Faça login para continuar.';
+      errEl.classList.remove('hidden');
+      btn.disabled = false; btn.textContent = 'Criar conta';
+      toggleMode();
+    }
+  } catch(e) {
+    errEl.textContent = 'Erro de conexão. Tente novamente.';
+    errEl.classList.remove('hidden');
+    btn.disabled = false; btn.textContent = 'Criar conta';
   }
 }
 </script>

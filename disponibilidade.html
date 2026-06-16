@@ -9,8 +9,6 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Outfit,sans-serif;background:#f0f4f8;color:#1a202c}
-
-/* Topbar */
 .topbar{background:linear-gradient(135deg,#1d327b,#162666);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #25bbee}
 .topbar-left{display:flex;align-items:center;gap:12px}
 .topbar h1{color:#fff;font-size:18px;font-weight:700}
@@ -18,26 +16,18 @@ body{font-family:Outfit,sans-serif;background:#f0f4f8;color:#1a202c}
 .user-badge{color:#93b4d4;font-size:13px}.user-badge strong{color:#fff}
 .logout-btn{color:#93b4d4;text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid rgba(255,255,255,.2);border-radius:6px;cursor:pointer}
 .logout-btn:hover{background:rgba(255,255,255,.1);color:#fff}
-
-/* Tabs */
 .tabs-row{max-width:1400px;margin:0 auto;padding:16px 24px 0;display:flex;align-items:flex-end;justify-content:space-between}
 .tabs{display:flex;gap:4px}
 .tab{padding:10px 20px;border-radius:8px 8px 0 0;border:1px solid #d0d8e8;border-bottom:none;background:#fff;color:#4a5568;cursor:pointer;font-family:Outfit;font-size:14px;font-weight:500}
 .tab:hover{color:#1d327b}
 .tab.active{background:#1d327b;color:#fff;border-color:#1d327b}
 .tabs-actions{display:flex;gap:8px;padding-bottom:2px}
-
-/* Buttons */
 .btn{padding:8px 16px;border-radius:8px;border:1px solid;font-family:Outfit;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .btn-primary{background:#1d327b;color:#fff;border-color:#1d327b}.btn-primary:hover{background:#162666}
 .btn-outline{background:#fff;color:#4a5568;border-color:#c3cfe2}.btn-outline:hover{border-color:#25bbee;color:#1d327b}
 .btn-sm{padding:6px 12px;font-size:12px}
-
-/* Panel */
 .panel{max-width:1400px;margin:0 auto;padding:0 24px 24px}
 .panel-inner{background:#fff;border:1px solid #d0d8e8;border-radius:0 8px 8px 8px;padding:20px}
-
-/* Upload section */
 .upload-wrap{text-align:center;padding:40px 20px}
 .upload-wrap h2{font-size:22px;font-weight:700;color:#1d327b;margin-bottom:8px}
 .upload-wrap>p{font-size:14px;color:#718096;margin-bottom:32px}
@@ -50,29 +40,21 @@ body{font-family:Outfit,sans-serif;background:#f0f4f8;color:#1a202c}
 .upload-box p{font-size:12px;color:#718096;margin:0}
 .upload-cta{display:inline-block;margin-top:12px;padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;color:#fff}
 .upload-hint{font-size:12px;color:#a0aec0;margin-top:12px}
-
-/* KPIs */
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 .kpi{background:#fff;border:1px solid #d0d8e8;border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .15s}
 .kpi:hover{border-color:#25bbee;transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
 .kpi-label{font-size:10px;font-weight:600;color:#718096;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
 .kpi-value{font-size:28px;font-weight:700;line-height:1}
 .kpi-sub{font-size:11px;color:#a0aec0;margin-top:4px}
-
-/* Filters */
 .filters-bar{background:#f7fafc;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px}
 .fg{display:flex;flex-direction:column;gap:3px}
 .fg-label{font-size:10px;font-weight:600;color:#718096;text-transform:uppercase;letter-spacing:.5px}
 select,input[type=text]{font-family:Outfit;font-size:13px;padding:8px 12px;border:1px solid #c3cfe2;border-radius:6px;outline:none;background:#fff}
 select:focus,input[type=text]:focus{border-color:#25bbee}
 .fg select,.fg input{min-width:145px}
-
-/* Legend */
 .legend{display:flex;gap:14px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
 .legend-item{display:flex;align-items:center;gap:5px;font-size:12px;color:#718096}
 .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-
-/* Table */
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{padding:8px 12px;text-align:left;color:#718096;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid #e2e8f0;background:#f7fafc;position:sticky;top:0;z-index:2;white-space:nowrap}
 tbody td{padding:8px 12px;border-bottom:1px solid #e2e8f0;vertical-align:middle}
@@ -83,8 +65,6 @@ tbody tr:last-child td{border-bottom:none}
 .table-hdr{padding:12px 16px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;justify-content:space-between;background:#fff}
 .table-title{font-size:14px;font-weight:600;color:#1a202c}
 .badge-count{font-size:11px;color:#718096;background:#f0f4f8;padding:3px 10px;border-radius:20px}
-
-/* Cell badges */
 .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600}
 .badge-cat{background:#edf2f7;color:#4a5568}
 .status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:5px;font-size:11px;font-weight:600;white-space:nowrap}
@@ -105,8 +85,6 @@ tbody tr:last-child td{border-bottom:none}
 .ped-badge{display:inline-block;background:#e9d8fd;color:#553c9a;padding:2px 7px;border-radius:5px;font-size:11px;font-weight:600}
 .td-code{font-weight:600;color:#1d327b;white-space:nowrap}
 .td-desc{color:#4a5568;max-width:260px;line-height:1.4}
-
-/* Modal */
 .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
 .modal{background:#fff;border-radius:12px;width:90%;max-width:680px;max-height:82vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2)}
@@ -114,36 +92,23 @@ tbody tr:last-child td{border-bottom:none}
 .modal-header h3{font-size:15px;font-weight:700;color:#1d327b;margin:0}
 .modal-body{overflow-y:auto;flex:1}
 .modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:#718096;line-height:1;padding:2px 6px}.modal-close:hover{color:#1a202c}
-
-/* Toast */
 .toast{position:fixed;top:20px;right:20px;padding:12px 20px;border-radius:8px;color:#fff;font-family:Outfit;font-size:13px;font-weight:500;z-index:2000;animation:slideIn .3s;box-shadow:0 4px 12px rgba(0,0,0,.15)}
 .toast-success{background:#16a34a}.toast-error{background:#dc2626}
 @keyframes slideIn{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
-
-/* Loading */
 .loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.9);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:12px}
 .loading-overlay.show{display:flex}
 @keyframes spin{to{transform:rotate(360deg)}}
 .spinner{width:36px;height:36px;border:3px solid #e2e8f0;border-top-color:#1d327b;border-radius:50%;animation:spin .8s linear infinite}
 #initLoading{display:flex;align-items:center;justify-content:center;height:60vh;flex-direction:column;gap:12px}
 .hidden{display:none!important}
-
-@media(max-width:768px){
-  .kpis{grid-template-columns:1fr 1fr}
-  .tabs-row{flex-direction:column;align-items:flex-start;gap:8px}
-  .tabs-actions{padding-bottom:0}
-}
+@media(max-width:768px){.kpis{grid-template-columns:1fr 1fr}.tabs-row{flex-direction:column;align-items:flex-start;gap:8px}.tabs-actions{padding-bottom:0}}
 </style>
 </head>
 <body>
-
-<!-- Loading overlay -->
 <div class="loading-overlay" id="loadingOverlay">
   <div class="spinner"></div>
   <p style="font-size:13px;color:#718096">Processando planilha...</p>
 </div>
-
-<!-- KPI Modal -->
 <div class="modal-overlay" id="kpiModal">
   <div class="modal">
     <div class="modal-header">
@@ -164,8 +129,6 @@ tbody tr:last-child td{border-bottom:none}
     </div>
   </div>
 </div>
-
-<!-- Topbar -->
 <div class="topbar">
   <div class="topbar-left">
     <svg width="32" height="32" viewBox="0 0 200 200">
@@ -181,8 +144,6 @@ tbody tr:last-child td{border-bottom:none}
     <span class="logout-btn" onclick="doLogout()">Sair</span>
   </div>
 </div>
-
-<!-- Tabs row -->
 <div class="tabs-row">
   <div class="tabs">
     <div class="tab active">Disponibilidade</div>
@@ -193,22 +154,14 @@ tbody tr:last-child td{border-bottom:none}
     <button class="btn btn-primary btn-sm" onclick="document.getElementById('file1').click()">↑ Atualizar COMEX</button>
   </div>
 </div>
-
-<!-- Hidden file inputs -->
 <input type="file" id="file1" accept=".xlsx,.xls" class="hidden">
 <input type="file" id="file2" accept=".xlsx,.xls" class="hidden">
-
-<!-- Panel -->
 <div class="panel">
   <div class="panel-inner">
-
-    <!-- Init loading -->
     <div id="initLoading">
       <div class="spinner"></div>
       <p style="font-size:13px;color:#718096">Carregando dados...</p>
     </div>
-
-    <!-- Upload section -->
     <div id="uploadSection" class="upload-wrap hidden">
       <h2>Disponibilidade de Produtos</h2>
       <p>Carregue as planilhas para gerar o painel atualizado para os representantes.</p>
@@ -234,10 +187,7 @@ tbody tr:last-child td{border-bottom:none}
       </div>
       <p class="upload-hint">Você pode carregar somente o COMEX — reservas ficarão vazias até carregar a segunda planilha.</p>
     </div>
-
-    <!-- Dashboard -->
     <div id="dashboard" class="hidden">
-      <!-- KPIs -->
       <div class="kpis">
         <div class="kpi" onclick="openKpiModal('zero','Estoque Zerado')">
           <div class="kpi-label">Estoque Zerado</div>
@@ -255,8 +205,6 @@ tbody tr:last-child td{border-bottom:none}
           <div class="kpi-sub">previsão próxima</div>
         </div>
       </div>
-
-      <!-- Filters -->
       <div class="filters-bar">
         <div class="fg">
           <span class="fg-label">Buscar produto</span>
@@ -301,16 +249,12 @@ tbody tr:last-child td{border-bottom:none}
         </div>
         <button class="btn btn-outline btn-sm" onclick="clearFilters()">Limpar filtros</button>
       </div>
-
-      <!-- Legend -->
       <div class="legend">
         <span style="font-size:10px;font-weight:600;color:#718096;text-transform:uppercase;letter-spacing:.5px">Estoque:</span>
         <div class="legend-item"><div class="legend-dot" style="background:#fc8181"></div>Zerado</div>
         <div class="legend-item"><div class="legend-dot" style="background:#f6e05e"></div>Baixo (&lt;60d)</div>
         <div class="legend-item"><div class="legend-dot" style="background:#68d391"></div>Normal</div>
       </div>
-
-      <!-- Table -->
       <div class="table-wrap">
         <div class="table-hdr">
           <span class="table-title">Materiais em Trânsito — Visão Representantes</span>
@@ -326,176 +270,84 @@ tbody tr:last-child td{border-bottom:none}
           </table>
         </div>
       </div>
-    </div><!-- /dashboard -->
+    </div>
   </div>
 </div>
-
 <script>
 const SB_URL = 'https://agtzfllruggjbscuwdyi.supabase.co';
 const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFndHpmbGxydWdnamJzY3V3ZHlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1NDQyMTcsImV4cCI6MjA5NzEyMDIxN30.A-u9ezGh7c921sf-L8Q6XVgUjU412mAAdkcID1Ajk8g';
 const CATS_ALLOWED = ["Grandes","Médias","Pequenas","Automação/Laser","Máscaras","Tochas","Acessórios de solda"];
 const TODAY = new Date();
-
 const STATUS_CLS = {'EM TRANSITO':'s-transit','ATRACADO NO PORTO':'s-atracado','LIBERADO TRANSPORTADORA':'s-liberado','CANAL AMARELO':'s-amarelo','CANAL VERMELHO':'s-vermelho','AGUARDANDO NO EMBRAGEM':'s-atracado','PEDIDO SOLICITADO/CONFIRMADO':'s-pedido'};
 const STATUS_LBL = {'EM TRANSITO':'✈ Em trânsito','ATRACADO NO PORTO':'⚓ Atracado no porto','LIBERADO TRANSPORTADORA':'🚛 A caminho Boxer','CANAL AMARELO':'🟡 Canal amarelo','CANAL VERMELHO':'🔴 Canal vermelho','AGUARDANDO NO EMBRAGEM':'⚓ Atracado no porto','PEDIDO SOLICITADO/CONFIRMADO':'📋 Pedido confirmado'};
-
-let SESSION = null;
-let allData = [], reservasMap = {}, lastUpdate = '', dbRowId = null;
-let search = '', filterCat = '', filterStatus = '', filterStock = 'zero_low', sortOrder = 'asc';
-
-// Auth
-function loadSession() {
-  const s = sessionStorage.getItem('boxer_session');
-  if (!s) { location.href = 'index.html'; return false; }
-  SESSION = JSON.parse(s);
-  return true;
-}
-function doLogout() { sessionStorage.clear(); location.href = 'index.html'; }
-
-// Supabase
-async function sb(path, method='GET', body=null) {
-  const hdrs = {
-    'Content-Type':'application/json','apikey':SB_ANON,
-    'Authorization':'Bearer '+(SESSION?.access_token||SB_ANON),
-    'Prefer': method==='POST'?'return=representation':method==='PATCH'?'return=minimal':''
-  };
-  const opts = {method,headers:hdrs};
-  if (body) opts.body = JSON.stringify(body);
-  const r = await fetch(SB_URL+'/rest/v1'+path, opts);
-  if (r.status===401){doLogout();return null;}
-  if (!r.ok){const e=await r.text();throw new Error(e);}
-  if (r.status===204||method==='PATCH') return null;
+let SESSION=null,allData=[],reservasMap={},lastUpdate='',dbRowId=null;
+let search='',filterCat='',filterStatus='',filterStock='zero_low',sortOrder='asc';
+function loadSession(){const s=sessionStorage.getItem('boxer_session');if(!s){location.href='index.html';return false;}SESSION=JSON.parse(s);return true;}
+function doLogout(){sessionStorage.clear();location.href='index.html';}
+async function sb(path,method='GET',body=null){
+  const hdrs={'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+(SESSION?.access_token||SB_ANON),'Prefer':method==='POST'?'return=representation':method==='PATCH'?'return=minimal':''};
+  const opts={method,headers:hdrs};if(body)opts.body=JSON.stringify(body);
+  const r=await fetch(SB_URL+'/rest/v1'+path,opts);
+  if(r.status===401){doLogout();return null;}
+  if(!r.ok){const e=await r.text();throw new Error(e);}
+  if(r.status===204||method==='PATCH')return null;
   return r.json();
 }
-
-// Toast
-function toast(m,t='success'){
-  const d=document.createElement('div');
-  d.className='toast toast-'+t;d.textContent=m;
-  document.body.appendChild(d);setTimeout(()=>d.remove(),3500);
-}
-
-// Date helpers
-function parseDate(val){
-  if(!val)return null;
-  if(val instanceof Date)return val.toISOString();
-  if(typeof val==='number')return new Date((val-25569)*86400*1000).toISOString();
-  const p=String(val).split('-');
-  if(p.length===3)return new Date(+p[0],+p[1]-1,+p[2]).toISOString();
-  return null;
-}
+function toast(m,t='success'){const d=document.createElement('div');d.className='toast toast-'+t;d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),3500);}
+function parseDate(val){if(!val)return null;if(val instanceof Date)return val.toISOString();if(typeof val==='number')return new Date((val-25569)*86400*1000).toISOString();const p=String(val).split('-');if(p.length===3)return new Date(+p[0],+p[1]-1,+p[2]).toISOString();return null;}
 function toDate(v){if(!v)return null;const d=new Date(v);return isNaN(d.getTime())?null:d;}
 function fmtDate(v){const d=toDate(v);return d?d.toLocaleDateString('pt-BR'):'—';}
 function dateCls(v){const d=toDate(v);if(!d)return '';const diff=(d-TODAY)/86400000;return diff<0?'date-late':diff<=15?'date-soon':'date-ok';}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-
-// Load
-async function loadData(){
-  const rows = await sb('/dashboard_data?select=id,all_data,reservas_map,last_update&limit=1');
-  if(rows&&rows.length>0){
-    dbRowId=rows[0].id; allData=rows[0].all_data||[];
-    reservasMap=rows[0].reservas_map||{}; lastUpdate=rows[0].last_update||'';
-  }
-}
-
-// Save
-async function saveComex(data,ts){
-  const body={all_data:data,last_update:ts};
-  if(dbRowId){await sb(`/dashboard_data?id=eq.${dbRowId}`,'PATCH',body);}
-  else{const r=await sb('/dashboard_data','POST',{...body,reservas_map:{}});if(r&&r.length>0)dbRowId=r[0].id;}
-}
-async function saveReservas(map,ts){
-  const merged=allData.map(r=>({...r,reservas:map[r.codigo]||0}));
-  const body={reservas_map:map,all_data:merged,last_update:ts};
-  if(dbRowId){await sb(`/dashboard_data?id=eq.${dbRowId}`,'PATCH',body);}
-  else{const r=await sb('/dashboard_data','POST',{...body,all_data:[]});if(r&&r.length>0)dbRowId=r[0].id;}
-}
-
-// Process COMEX
+async function loadData(){const rows=await sb('/dashboard_data?select=id,all_data,reservas_map,last_update&limit=1');if(rows&&rows.length>0){dbRowId=rows[0].id;allData=rows[0].all_data||[];reservasMap=rows[0].reservas_map||{};lastUpdate=rows[0].last_update||'';}}
+async function saveComex(data,ts){const body={all_data:data,last_update:ts};if(dbRowId){await sb(`/dashboard_data?id=eq.${dbRowId}`,'PATCH',body);}else{const r=await sb('/dashboard_data','POST',{...body,reservas_map:{}});if(r&&r.length>0)dbRowId=r[0].id;}}
+async function saveReservas(map,ts){const merged=allData.map(r=>({...r,reservas:map[r.codigo]||0}));const body={reservas_map:map,all_data:merged,last_update:ts};if(dbRowId){await sb(`/dashboard_data?id=eq.${dbRowId}`,'PATCH',body);}else{const r=await sb('/dashboard_data','POST',{...body,all_data:[]});if(r&&r.length>0)dbRowId=r[0].id;}}
 function processFile(file){
-  showLoading(true);
-  const reader=new FileReader();
-  reader.onload=e=>{
-    try{
-      const wb=XLSX.read(e.target.result,{type:'binary',cellDates:true});
-      const fupRaw=XLSX.utils.sheet_to_json(wb.Sheets['FUP Chegadas'],{header:1});
-      const fupHeaders=fupRaw[3];
-      const fupData=fupRaw.slice(4).map(row=>{
-        const obj={};fupHeaders.forEach((h,i)=>{if(h)obj[h.toString().trim()]=row[i];});return obj;
-      });
-      const dataRows=XLSX.utils.sheet_to_json(wb.Sheets['Data'],{header:1});
-      const dataMap={};
-      dataRows.slice(1).forEach(row=>{
-        const cod=row[2];if(!cod)return;
-        dataMap[String(cod).trim()]={estoque:row[7]||0,v90:row[5]||0};
-      });
-      const processed=fupData.filter(r=>{
-        const cat=String(r['CATEGORIA']||'').trim();return r['ITEM']&&CATS_ALLOWED.includes(cat);
-      }).map(r=>{
-        const codigo=String(r['ITEM']||'').replace('.0','').trim();
-        const si=dataMap[codigo]||{estoque:null,v90:0};
-        const media=si.v90/3;
-        const cob=media>0?(si.estoque/media)*30:999;
-        let stockStatus='ok';
-        if(si.estoque===0||si.estoque===null)stockStatus='zero';
-        else if(cob<60)stockStatus='low';
-        return{codigo,descricao:r['DESCRIÇÃO']||'',categoria:String(r['CATEGORIA']||'').trim(),
-          status:String(r['STATUS']||'').trim(),qtd:r['QUANTIDADE']||0,
-          prevBoxer:parseDate(r['PREVISÃO ENTRADA BOXER']),
-          prevRep:parseDate(r['REPRESENTANTE - PREV ENTRADA']),
-          estoque:si.estoque,stockStatus,
-          cobertura:cob===999?null:Math.round(cob),
-          reservas:reservasMap[codigo]||0};
-      });
-      const ts='Atualizado em '+new Date().toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
-      allData=processed;lastUpdate=ts;filterStock='zero_low';
-      document.getElementById('filterStock').value='zero_low';
-      render(true);
-      saveComex(processed,ts).then(()=>toast('COMEX atualizado com sucesso!')).catch(e=>toast('Erro ao salvar: '+e.message,'error'));
-    }catch(err){toast('Erro ao processar COMEX: '+err.message,'error');}
-    showLoading(false);
-  };
+  showLoading(true);const reader=new FileReader();
+  reader.onload=e=>{try{
+    const wb=XLSX.read(e.target.result,{type:'binary',cellDates:true});
+    const fupRaw=XLSX.utils.sheet_to_json(wb.Sheets['FUP Chegadas'],{header:1});
+    const fupHeaders=fupRaw[3];
+    const fupData=fupRaw.slice(4).map(row=>{const obj={};fupHeaders.forEach((h,i)=>{if(h)obj[h.toString().trim()]=row[i];});return obj;});
+    const dataRows=XLSX.utils.sheet_to_json(wb.Sheets['Data'],{header:1});
+    const dataMap={};dataRows.slice(1).forEach(row=>{const cod=row[2];if(!cod)return;dataMap[String(cod).trim()]={estoque:row[7]||0,v90:row[5]||0};});
+    const processed=fupData.filter(r=>{const cat=String(r['CATEGORIA']||'').trim();return r['ITEM']&&CATS_ALLOWED.includes(cat);}).map(r=>{
+      const codigo=String(r['ITEM']||'').replace('.0','').trim();
+      const si=dataMap[codigo]||{estoque:null,v90:0};
+      const media=si.v90/3;const cob=media>0?(si.estoque/media)*30:999;
+      let stockStatus='ok';if(si.estoque===0||si.estoque===null)stockStatus='zero';else if(cob<60)stockStatus='low';
+      return{codigo,descricao:r['DESCRIÇÃO']||'',categoria:String(r['CATEGORIA']||'').trim(),status:String(r['STATUS']||'').trim(),qtd:r['QUANTIDADE']||0,prevBoxer:parseDate(r['PREVISÃO ENTRADA BOXER']),prevRep:parseDate(r['REPRESENTANTE - PREV ENTRADA']),estoque:si.estoque,stockStatus,cobertura:cob===999?null:Math.round(cob),reservas:reservasMap[codigo]||0};
+    });
+    const ts='Atualizado em '+new Date().toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    allData=processed;lastUpdate=ts;filterStock='zero_low';document.getElementById('filterStock').value='zero_low';
+    render(true);saveComex(processed,ts).then(()=>toast('COMEX atualizado com sucesso!')).catch(e=>toast('Erro ao salvar: '+e.message,'error'));
+  }catch(err){toast('Erro ao processar COMEX: '+err.message,'error');}showLoading(false);};
   reader.readAsBinaryString(file);
 }
-
-// Process Reservas
 function processReservas(file){
-  showLoading(true);
-  const reader=new FileReader();
-  reader.onload=e=>{
-    try{
-      const wb=XLSX.read(e.target.result,{type:'binary'});
-      const ws=wb.Sheets['sheet1']||wb.Sheets['Query Mês']||wb.Sheets[wb.SheetNames[0]];
-      const rows=XLSX.utils.sheet_to_json(ws,{header:1});
-      let hIdx=0,headers=rows[0];
-      if(!headers.includes('product_code')&&rows[1]&&rows[1].includes('product_code')){hIdx=1;headers=rows[1];}
-      const idxIS=headers.indexOf('invoice_status');
-      const idxND=headers.indexOf('workflowNode_description');
-      const idxCod=headers.indexOf('product_code');
-      const idxQtd=headers.indexOf('quantity');
-      const newRes={};
-      rows.slice(hIdx+1).forEach(row=>{
-        if(String(row[33]||'').toLowerCase().includes('tekweld'))return;
-        const nd=idxND>=0?row[idxND]:null;
-        const is=idxIS>=0?row[idxIS]:null;
-        if(nd!=='Aguardando importação'&&is!=='APPROVED')return;
-        const cod=String(row[idxCod]||'').replace('.0','').trim();
-        const qtd=parseFloat(row[idxQtd])||0;
-        if(cod)newRes[cod]=(newRes[cod]||0)+qtd;
-      });
-      reservasMap=newRes;
-      if(allData.length>0)allData=allData.map(r=>({...r,reservas:newRes[r.codigo]||0}));
-      const ts='Atualizado em '+new Date().toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
-      lastUpdate=ts;
-      render(allData.length>0);
-      saveReservas(newRes,ts).then(()=>toast('Reservas atualizadas com sucesso!')).catch(e=>toast('Erro ao salvar: '+e.message,'error'));
-    }catch(err){toast('Erro ao processar reservas: '+err.message,'error');}
-    showLoading(false);
-  };
+  showLoading(true);const reader=new FileReader();
+  reader.onload=e=>{try{
+    const wb=XLSX.read(e.target.result,{type:'binary'});
+    const ws=wb.Sheets['sheet1']||wb.Sheets['Query Mês']||wb.Sheets[wb.SheetNames[0]];
+    const rows=XLSX.utils.sheet_to_json(ws,{header:1});
+    let hIdx=0,headers=rows[0];
+    if(!headers.includes('product_code')&&rows[1]&&rows[1].includes('product_code')){hIdx=1;headers=rows[1];}
+    const idxIS=headers.indexOf('invoice_status'),idxND=headers.indexOf('workflowNode_description'),idxCod=headers.indexOf('product_code'),idxQtd=headers.indexOf('quantity');
+    const newRes={};
+    rows.slice(hIdx+1).forEach(row=>{
+      if(String(row[33]||'').toLowerCase().includes('tekweld'))return;
+      const nd=idxND>=0?row[idxND]:null,is=idxIS>=0?row[idxIS]:null;
+      if(nd!=='Aguardando importação'&&is!=='APPROVED')return;
+      const cod=String(row[idxCod]||'').replace('.0','').trim(),qtd=parseFloat(row[idxQtd])||0;
+      if(cod)newRes[cod]=(newRes[cod]||0)+qtd;
+    });
+    reservasMap=newRes;if(allData.length>0)allData=allData.map(r=>({...r,reservas:newRes[r.codigo]||0}));
+    const ts='Atualizado em '+new Date().toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    lastUpdate=ts;render(allData.length>0);
+    saveReservas(newRes,ts).then(()=>toast('Reservas atualizadas com sucesso!')).catch(e=>toast('Erro ao salvar: '+e.message,'error'));
+  }catch(err){toast('Erro ao processar reservas: '+err.message,'error');}showLoading(false);};
   reader.readAsBinaryString(file);
 }
-
-// Filter & sort
 function getFiltered(){
   return allData.filter(r=>{
     if(r.stockStatus==='ok')return false;
@@ -505,11 +357,7 @@ function getFiltered(){
     if(filterStock==='zero'&&r.stockStatus!=='zero')return false;
     if(filterStock==='low'&&r.stockStatus!=='low')return false;
     return true;
-  }).sort((a,b)=>{
-    const da=toDate(a.prevRep),db=toDate(b.prevRep);
-    if(!da&&!db)return 0;if(!da)return 1;if(!db)return -1;
-    return sortOrder==='asc'?da-db:db-da;
-  });
+  }).sort((a,b)=>{const da=toDate(a.prevRep),db=toDate(b.prevRep);if(!da&&!db)return 0;if(!da)return 1;if(!db)return-1;return sortOrder==='asc'?da-db:db-da;});
 }
 function getKpiItems(type){
   if(type==='zero')return allData.filter(r=>r.stockStatus==='zero');
@@ -517,84 +365,42 @@ function getKpiItems(type){
   if(type==='30d')return allData.filter(r=>{const d=toDate(r.prevRep);if(!d)return false;const diff=(d-TODAY)/86400000;return diff>=0&&diff<=30;});
   return[];
 }
-
-// Render
 function showLoading(v){document.getElementById('loadingOverlay').classList.toggle('show',v);}
-
 function render(show){
   document.getElementById('lastUpdate').textContent=lastUpdate;
   document.getElementById('initLoading').classList.add('hidden');
-  if(!show&&allData.length===0){
-    document.getElementById('uploadSection').classList.remove('hidden');
-    document.getElementById('dashboard').classList.add('hidden');
-    return;
-  }
-  document.getElementById('uploadSection').classList.add('hidden');
-  document.getElementById('dashboard').classList.remove('hidden');
+  if(!show&&allData.length===0){document.getElementById('uploadSection').classList.remove('hidden');document.getElementById('dashboard').classList.add('hidden');return;}
+  document.getElementById('uploadSection').classList.add('hidden');document.getElementById('dashboard').classList.remove('hidden');
   document.getElementById('kpiZero').textContent=allData.filter(r=>r.stockStatus==='zero').length;
   document.getElementById('kpiLow').textContent=allData.filter(r=>r.stockStatus==='low').length;
   document.getElementById('kpi30d').textContent=getKpiItems('30d').length;
   renderTable();
 }
-
 function renderTable(){
-  const filtered=getFiltered();
-  document.getElementById('recordCount').textContent=`${filtered.length} itens`;
+  const filtered=getFiltered();document.getElementById('recordCount').textContent=`${filtered.length} itens`;
   const tbody=document.getElementById('tableBody');
-  if(!filtered.length){
-    tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:48px;color:#718096">Nenhum item encontrado com os filtros aplicados.</td></tr>';
-    return;
-  }
+  if(!filtered.length){tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:48px;color:#718096">Nenhum item encontrado com os filtros aplicados.</td></tr>';return;}
   tbody.innerHTML=filtered.map(r=>{
-    const stockEl=r.stockStatus==='zero'
-      ?'<span class="stock-badge sb-zero">● Zerado</span>'
-      :r.stockStatus==='low'
-        ?`<span class="stock-badge sb-low">● Baixo ${r.cobertura!==null?r.cobertura+'d':''}</span>`
-        :`<span class="stock-badge sb-ok">● ${r.estoque!==null?r.estoque:'—'} un</span>`;
+    const stockEl=r.stockStatus==='zero'?'<span class="stock-badge sb-zero">● Zerado</span>':r.stockStatus==='low'?`<span class="stock-badge sb-low">● Baixo ${r.cobertura!==null?r.cobertura+'d':''}</span>`:`<span class="stock-badge sb-ok">● ${r.estoque!==null?r.estoque:'—'} un</span>`;
     const resEl=r.reservas>0?`<span class="ped-badge">${Number(r.reservas).toLocaleString('pt-BR')}</span>`:'<span style="color:#a0aec0;font-size:12px">—</span>';
-    return`<tr>
-      <td>${stockEl}</td>
-      <td class="text-center">${resEl}</td>
-      <td class="td-code">${esc(r.codigo)}</td>
-      <td class="td-desc">${esc(r.descricao)}</td>
-      <td><span class="badge badge-cat">${esc(r.categoria)}</span></td>
-      <td class="td-date ${dateCls(r.prevRep)}">${fmtDate(r.prevRep)}</td>
-      <td><span class="status-badge ${STATUS_CLS[r.status]||'s-default'}">${STATUS_LBL[r.status]||esc(r.status)}</span></td>
-      <td class="text-center">${Number(r.qtd).toLocaleString('pt-BR')}</td>
-    </tr>`;
+    return`<tr><td>${stockEl}</td><td class="text-center">${resEl}</td><td class="td-code">${esc(r.codigo)}</td><td class="td-desc">${esc(r.descricao)}</td><td><span class="badge badge-cat">${esc(r.categoria)}</span></td><td class="td-date ${dateCls(r.prevRep)}">${fmtDate(r.prevRep)}</td><td><span class="status-badge ${STATUS_CLS[r.status]||'s-default'}">${STATUS_LBL[r.status]||esc(r.status)}</span></td><td class="text-center">${Number(r.qtd).toLocaleString('pt-BR')}</td></tr>`;
   }).join('');
 }
-
 function openKpiModal(type,title){
-  const items=getKpiItems(type);
-  document.getElementById('modalTitle').textContent=title;
-  document.getElementById('modalCount').textContent=`${items.length} itens`;
-  document.getElementById('modalBody').innerHTML=items.map(r=>`<tr>
-    <td class="td-code">${esc(r.codigo)}</td>
-    <td class="td-desc">${esc(r.descricao)}</td>
-    <td><span class="badge badge-cat">${esc(r.categoria)}</span></td>
-    <td class="text-right">${Number(r.qtd).toLocaleString('pt-BR')}</td>
-    <td class="text-right">${r.reservas>0?`<span class="ped-badge">${Number(r.reservas).toLocaleString('pt-BR')}</span>`:'<span style="color:#a0aec0">—</span>'}</td>
-  </tr>`).join('');
+  const items=getKpiItems(type);document.getElementById('modalTitle').textContent=title;document.getElementById('modalCount').textContent=`${items.length} itens`;
+  document.getElementById('modalBody').innerHTML=items.map(r=>`<tr><td class="td-code">${esc(r.codigo)}</td><td class="td-desc">${esc(r.descricao)}</td><td><span class="badge badge-cat">${esc(r.categoria)}</span></td><td class="text-right">${Number(r.qtd).toLocaleString('pt-BR')}</td><td class="text-right">${r.reservas>0?`<span class="ped-badge">${Number(r.reservas).toLocaleString('pt-BR')}</span>`:'<span style="color:#a0aec0">—</span>'}</td></tr>`).join('');
   document.getElementById('kpiModal').classList.add('show');
 }
 function closeKpiModal(){document.getElementById('kpiModal').classList.remove('show');}
-
 function clearFilters(){
   search='';filterCat='';filterStatus='';filterStock='zero_low';sortOrder='asc';
-  document.getElementById('searchInput').value='';
-  document.getElementById('filterCat').value='';
-  document.getElementById('filterStatus').value='';
-  document.getElementById('filterStock').value='zero_low';
-  document.getElementById('sortOrder').value='asc';
+  document.getElementById('searchInput').value='';document.getElementById('filterCat').value='';
+  document.getElementById('filterStatus').value='';document.getElementById('filterStock').value='zero_low';document.getElementById('sortOrder').value='asc';
   renderTable();
 }
-
-// Init
 document.addEventListener('DOMContentLoaded',async()=>{
   if(!loadSession())return;
   document.getElementById('userName').textContent=sessionStorage.getItem('boxer_email')||'';
-
   document.getElementById('file1').addEventListener('change',e=>{if(e.target.files[0])processFile(e.target.files[0]);e.target.value='';});
   document.getElementById('file2').addEventListener('change',e=>{if(e.target.files[0])processReservas(e.target.files[0]);e.target.value='';});
   document.getElementById('searchInput').addEventListener('input',e=>{search=e.target.value;renderTable();});
@@ -603,9 +409,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   document.getElementById('filterStock').addEventListener('change',e=>{filterStock=e.target.value;renderTable();});
   document.getElementById('sortOrder').addEventListener('change',e=>{sortOrder=e.target.value;renderTable();});
   document.getElementById('kpiModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeKpiModal();});
-
-  await loadData();
-  render(allData.length>0);
+  await loadData();render(allData.length>0);
 });
 </script>
 </body>

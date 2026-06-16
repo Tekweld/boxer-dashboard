@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Disponibilidade - Boxer</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Outfit,sans-serif;background:#f0f4f8;color:#1a202c}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f0f4f8}
+.login-card{background:#fff;border-radius:12px;padding:40px;width:100%;max-width:400px;box-shadow:0 4px 24px rgba(0,0,0,.08);border:1px solid #e2e8f0}
+.login-card h1{font-size:20px;color:#1d327b;font-weight:700;text-align:center;margin:12px 0 4px}
+.login-card p{font-size:13px;color:#718096;text-align:center;margin-bottom:24px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:12px;font-weight:500;color:#4a5568;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.field input{width:100%;padding:10px 14px;border:1px solid #c3cfe2;border-radius:8px;font-size:14px;font-family:Outfit;outline:none}
+.field input:focus{border-color:#25bbee}
+.btn-login{width:100%;padding:12px;background:#1d327b;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:Outfit;margin-top:4px}
+.btn-login:hover{background:#162666}
+.btn-login:disabled{background:#a0aec0;cursor:not-allowed}
+.err-msg{background:#fee2e2;color:#991b1b;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;border:1px solid #fecaca}
+.hidden{display:none!important}
+.logo-center{display:flex;justify-content:center;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="logo-center">
+      <svg width="52" height="52" viewBox="0 0 200 200">
+        <rect x="10" y="10" width="180" height="180" rx="30" fill="#e30613"/>
+        <line x1="30" y1="30" x2="82" y2="95" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+        <polygon points="100,38 108,80 145,55 118,88 158,92 120,105 148,138 108,118 100,162 92,118 52,138 80,105 42,92 82,88 55,55 92,80" fill="#fff"/>
+      </svg>
+    </div>
+    <h1>Boxer Representantes</h1>
+    <p>Painel de Disponibilidade e Sales 2.0</p>
+    <div id="loginErr" class="err-msg hidden"></div>
+    <div class="field"><label>E-mail</label><input id="loginEmail" type="email" placeholder="seu@email.com" autocomplete="email"></div>
+    <div class="field"><label>Senha</label><input id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password"></div>
+    <button class="btn-login" id="btnLogin" onclick="doLogin()">Entrar</button>
+  </div>
+</div>
+
+<script>
+const SB_URL = 'https://agtzfllruggjbscuwdyi.supabase.co';
+const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFndHpmbGxydWdnamJzY3V3ZHlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1NDQyMTcsImV4cCI6MjA5NzEyMDIxN30.A-u9ezGh7c921sf-L8Q6XVgUjU412mAAdkcID1Ajk8g';
+
+// Se já tem sessão, redirecionar
+if (sessionStorage.getItem('boxer_session')) location.href = 'disponibilidade.html';
+
+document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('loginEmail').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('loginPass').focus(); });
+
+async function doLogin() {
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const errEl = document.getElementById('loginErr');
+  const btn = document.getElementById('btnLogin');
+
+  if (!email || !pass) {
+    errEl.textContent = 'Preencha todos os campos.';
+    errEl.classList.remove('hidden');
+    return;
+  }
+  errEl.classList.add('hidden');
+  btn.disabled = true; btn.textContent = 'Entrando...';
+
+  try {
+    const res = await fetch(`${SB_URL}/auth/v1/token?grant_type=password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SB_ANON },
+      body: JSON.stringify({ email, password: pass }),
+    });
+    const data = await res.json();
+    if (data.error || !data.access_token) {
+      errEl.textContent = 'E-mail ou senha incorretos.';
+      errEl.classList.remove('hidden');
+      btn.disabled = false; btn.textContent = 'Entrar';
+      return;
+    }
+    sessionStorage.setItem('boxer_session', JSON.stringify(data));
+    sessionStorage.setItem('boxer_email', email);
+    location.href = 'disponibilidade.html';
+  } catch(e) {
+    errEl.textContent = 'Erro de conexão. Tente novamente.';
+    errEl.classList.remove('hidden');
+    btn.disabled = false; btn.textContent = 'Entrar';
+  }
+}
+</script>
+</body>
+</html>
